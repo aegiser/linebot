@@ -18,6 +18,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+			$groupId = $event['source']['groupId']
 			$userId = $event['source']['userId']
 			// Build message to reply back
 			$messages = [
