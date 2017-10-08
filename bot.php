@@ -11,12 +11,11 @@ $userId = 0;
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
-		if ($event['type'] == 'group'){
 			$groupId = $event['groupId'];
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'group chat'
+				'text' => $event['type']
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -38,7 +37,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";			
-		}
+
 	}
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
