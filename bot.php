@@ -44,7 +44,6 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-		else
 		if ($event['type'] == 'group'){
 			$groupId = $event['groupId'];
 			$userId = $event['userId'];
