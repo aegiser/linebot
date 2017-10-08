@@ -25,9 +25,9 @@ if (!is_null($events['events'])) {
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
+			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
-				'replyToken' => $replyToken,
+				'to' => Ub0c1ec272ac44dbb11f1defdcfed1f2e,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
@@ -44,11 +44,6 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-		if ($event['type'] == 'room'){
-			$groupId = $event['roomId'];
-			$userId = $event['userId'];
-			echo $groupId.' '.$userId;
-		}	
 	}
 }
 echo "OK";
