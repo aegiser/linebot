@@ -6,6 +6,8 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
+$groupId = 0;
+$userId = 0;
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
@@ -19,7 +21,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $replyToken.' : '.$text
+				'text' => 'groupId '.$groupId.' userId '.$userId.' replyToken '.$replyToken.' text '.$text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -42,33 +44,12 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-		elseif ($event['type'] == 'group'){
+		else
+		if ($event['type'] == 'group'){
 			$groupId = $event['groupId'];
 			$userId = $event['userId'];
-			
-			$messages = [
-				'type' => 'text',
-				'text' => $groupId.' : '.$userId
-			];
-			$url = 'https://api.line.me/v2/bot/message/push';
-			$data = [
-				'to' => $groupId,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result . "\r\n";			
-		}
+			echo $groupId.' '.$userId;
+		}	
 	}
 }
 echo "OK";
