@@ -44,8 +44,8 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-		if ($event['type'] == 'group'){
-			$groupId = $event['groupId'];
+		if ($event['type'] == 'room'){
+			$groupId = $event['roomId'];
 			$userId = $event['userId'];
 			echo $groupId.' '.$userId;
 		}	
