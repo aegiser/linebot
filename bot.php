@@ -25,7 +25,7 @@ if (!is_null($events['events'])) {
 				// Build message to reply back
 				$messages = [
 					'type' => 'text',
-					'text' => 'groupId '.$groupId. "\r\n" .' userId '.$userId. "\r\n" .' replyToken '.$replyToken. "\r\n" .' text '.$text
+					'text' => '[GroupId] '.$groupId. "\r\n" .'[UserId] '.$userId. "\r\n" .'[ReplyToken] '.$replyToken. "\r\n" .'[Text] '.$text
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
