@@ -5,7 +5,7 @@ $access_token = 'mUd6BJCUnUQ3hZYv21TIXefVDh1kYQb4zU5d0l9c0LNfFkL/qc4q/IVN0GyGpFk
 $espSn = $_GET['EspSN'];
 $type = $_GET['Type'];
 
-echo $espsn. ' ' . $type;
+echo $espSn. ' ' . $type;
 
 if ($type == 'temp_humi'){
 	$temp = $_GET['Temp'];
@@ -34,6 +34,4 @@ if ($type == 'temp_humi'){
 	echo $result . "\r\n";
 
 }
-
-
 ?>
