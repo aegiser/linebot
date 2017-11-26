@@ -5,13 +5,14 @@
 	<body>
 
 	<?php
+		$nodeID = $_GET["NodeID"];
 		$gid = $_GET["GroupID"];
 		$temp = $_GET["temp"];
 		$humi = $_GET["humi"];
 		$access_token = 'mUd6BJCUnUQ3hZYv21TIXefVDh1kYQb4zU5d0l9c0LNfFkL/qc4q/IVN0GyGpFk36ev3qsgFS9nDKGWad84TCbUcqaOrkFNAE7oNgkg19u8cYp3sG3oQ++dd/eZQ2vdPVNs9z66ylHff8LqqfaztjQdB04t89/1O/w1cDnyilFU=';			
 		$messages = [
 			'type' => 'text',
-			'text' => 'Temperature : '. $temp .'°C'."\r\n" .'Humidity : '.$humi. '%'."\r\n"
+			'text' => 'NodeID : '.$nodeID."\r\n" .'Temperature : '. $temp .'°C'."\r\n" .'Humidity : '.$humi. '%'."\r\n"
 		];
 		
 		$url = 'https://api.line.me/v2/bot/message/push';
